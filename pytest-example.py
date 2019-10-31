@@ -1,8 +1,8 @@
 import pytest
 
-from say import say
+from utils import afetch
 
 
 @pytest.mark.asyncio
 async def test_say():
-    assert 'Hello!' == await say('Hello!', 0)
+    assert await afetch('example.com') is not None
