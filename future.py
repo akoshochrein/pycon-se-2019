@@ -19,7 +19,6 @@ breeds = ['labrador', 'golden retriever', 'pug']
 futures = [asyncio.Future() for _ in range(len(breeds))]
 for index, future in enumerate(futures):
     asyncio.ensure_future(print_breed(breeds[index], future))
-    future.add_done_callback(print_done)
 
 
 loop = asyncio.get_event_loop()
