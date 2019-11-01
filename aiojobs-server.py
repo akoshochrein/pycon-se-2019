@@ -7,10 +7,12 @@ from helpers import afetch
 
 
 async def save_doggo(breed):
+    print(f'saving {breed}'...)
     image_response = await afetch(f'https://dog.ceo/api/breed/{breed}/images/random')
     async with AIOFile(f'/tmp/{breed}.txt', 'w+') as afp:
         await afp.write(image_response['message'])
         await afp.fsync()
+    print(f'saved {breed}!')
 
 
 async def handle(request):
